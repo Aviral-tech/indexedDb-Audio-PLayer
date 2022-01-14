@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import db from "./models/db";
 db.open();
-let reader = new FileReader();
 
 const App = () => {
   const [selectedFile, setSelectedFile] = useState();

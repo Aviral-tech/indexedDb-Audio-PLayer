@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import db from "./models/db";
+import "./css/App.css";
 db.open();
 
 const App = () => {
@@ -48,12 +49,14 @@ const App = () => {
           </audio>
         </div>
       ) : (
-        <div>fails</div>
+        <div>
+          <h1 style={{ color: "black" }}>Choose an audio file:</h1>
+        </div>
       )}
       <input type="file" name="file" onChange={changeHandler} />
 
       {isFilePicked ? (
-        <div>
+        <div style={{ color: "blue" }}>
           <p>Filename: {selectedFile.name}</p>
           <p>Filetype: {selectedFile.type}</p>
           <p>Size in bytes: {selectedFile.size}</p>
@@ -66,7 +69,9 @@ const App = () => {
         <p>Select a file to show details</p>
       )}
       <div>
-        <button onClick={handleSubmission}>Submit</button>
+        <button className="btn" onClick={handleSubmission}>
+          Submit
+        </button>
       </div>
     </div>
   );
